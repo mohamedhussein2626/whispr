@@ -3,6 +3,9 @@
  * Handles both CommonJS (require) and ESM (import) module systems
  */
 
+// Import DOM polyfills first - required for pdf-parse in serverless environments
+import './dom-polyfills';
+
 // Type definitions for pdf-parse
 interface PdfParseOptions {
   max?: number;

@@ -6,6 +6,8 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { r2Client, R2_BUCKET_NAME } from "@/lib/r2-config";
 import { Readable } from "stream";
+// Import DOM polyfills before pdf-parse
+import "@/lib/dom-polyfills";
 import { processHybridPdf } from "@/lib/pdf-ocr-hybrid";
 import mammoth from "mammoth";
 
