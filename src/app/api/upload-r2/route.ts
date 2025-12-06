@@ -209,14 +209,24 @@ export async function POST(request: NextRequest) {
       // Upload to R2
       const uploadResult = await uploadToR2(file, key, file.type);
 
-      // Use API route URL instead of direct R2 URL for secure access
-      const apiUrl = `/api/file/${encodeURIComponent(key)}`;
-      const fullUrl = new URL(apiUrl, request.url).toString();
+      // Prefer explicit BASE_URL (production), then NEXT_PUBLIC_APP_URL, else derive from the incoming request
+      const origin =
+        (process.env.BASE_URL && process.env.BASE_URL.replace(/\/$/, "")) ||
+        (process.env.NEXT_PUBLIC_APP_URL && process.env.NEXT_PUBLIC_APP_URL.replace(/\/$/, "")) ||
+        new URL(request.url).origin;
 
-      // Update file with API route URL
+      const apiPath = `/api/file/${encodeURIComponent(key)}`;
+      const fullUrl = `${origin}${apiPath}`;
+
+      console.log("Saving file record:", { key, fullUrl, origin });
+
+      // Save the storage key and the public API URL so frontend can fetch it in prod
       await db.file.update({
         where: { id: createdFile.id },
-        data: { url: fullUrl },
+        data: {
+          key,
+          url: fullUrl,
+        },
       });
 
       // Process file content based on file type
@@ -311,3 +321,12 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+// Use this in client code that opens the PDF
+// Do NOT hardcode http://localhost:3000 in production
+const fetchPdf = async (fileKey: string) => {
+  // relative path uses same origin as the app
+  const url = `/api/file/${encodeURIComponent(fileKey)}`;
+  const res = await fetch(url);
+  // handle response
+};
