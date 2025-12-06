@@ -229,46 +229,85 @@ export async function POST(request: NextRequest) {
       let chunksCreated = 0;
       
       try {
-      const processor = getFileProcessor(file.type);
+        const processor = getFileProcessor(file.type);
+        console.log(`🔄 Processing file type: ${file.type}, size: ${file.size} bytes`);
         extractedText = await processor(file);
         console.log("✅ Extracted text length:", extractedText.length);
-      console.log("Sample content:", extractedText.substring(0, 500));
+        
+        if (extractedText && extractedText.length > 0) {
+          console.log("Sample content:", extractedText.substring(0, 500));
+        }
         
         // Validate extracted text
         if (!extractedText || !extractedText.trim()) {
           console.warn("⚠️ Warning: Extracted text is empty or whitespace only");
+          console.warn("⚠️ File type:", file.type);
+          console.warn("⚠️ File name:", file.name);
         }
       } catch (processingError) {
         console.error("❌ Error processing file content:", processingError);
+        console.error("❌ Error type:", processingError instanceof Error ? processingError.constructor.name : typeof processingError);
+        console.error("❌ Error message:", processingError instanceof Error ? processingError.message : String(processingError));
+        if (processingError instanceof Error && processingError.stack) {
+          console.error("❌ Error stack:", processingError.stack);
+        }
         // Don't fail the upload, but log the error
         extractedText = "";
       }
 
       // Chunk and insert the extracted text
       if (extractedText && extractedText.trim()) {
-      const chunks = chunkText(extractedText);
+        const chunks = chunkText(extractedText);
         console.log(`📦 Creating ${chunks.length} chunks for file ${createdFile.id}`);
         
         try {
           // Create chunks in batch for better performance
-          const chunkPromises = chunks.map((chunk) =>
-            db.chunk.create({
-            data: {
-                text: chunk.trim(), // Trim whitespace
-              fileId: createdFile.id,
-            },
-            })
-          );
+          const chunkPromises = chunks.map((chunk, index) => {
+            const trimmedChunk = chunk.trim();
+            if (!trimmedChunk) {
+              console.warn(`⚠️ Skipping empty chunk at index ${index}`);
+              return null;
+            }
+            return db.chunk.create({
+              data: {
+                text: trimmedChunk,
+                fileId: createdFile.id,
+              },
+            });
+          }).filter(Boolean); // Remove null entries
           
-          await Promise.all(chunkPromises);
-          chunksCreated = chunks.length;
-          console.log(`✅ Successfully created ${chunksCreated} chunks`);
+          if (chunkPromises.length === 0) {
+            console.warn("⚠️ No valid chunks to create after filtering");
+          } else {
+            const createdChunks = await Promise.all(chunkPromises);
+            chunksCreated = createdChunks.length;
+            console.log(`✅ Successfully created ${chunksCreated} chunks`);
+            
+            // Verify chunks were actually created
+            const verifyChunks = await db.chunk.findMany({
+              where: { fileId: createdFile.id },
+              select: { id: true },
+            });
+            console.log(`🔍 Verification: Found ${verifyChunks.length} chunks in database for file ${createdFile.id}`);
+            
+            if (verifyChunks.length === 0) {
+              console.error("❌ CRITICAL: Chunks were created but not found in database!");
+              console.error("❌ This might indicate a database transaction issue");
+            }
+          }
         } catch (chunkError) {
           console.error("❌ Error creating chunks:", chunkError);
-          // Don't fail the upload if chunk creation fails
+          console.error("❌ Error type:", chunkError instanceof Error ? chunkError.constructor.name : typeof chunkError);
+          console.error("❌ Error message:", chunkError instanceof Error ? chunkError.message : String(chunkError));
+          if (chunkError instanceof Error && chunkError.stack) {
+            console.error("❌ Error stack:", chunkError.stack);
+          }
+          // Don't fail the upload if chunk creation fails, but log extensively
         }
       } else {
         console.warn("⚠️ No text extracted, skipping chunk creation. File uploaded but content extraction failed.");
+        console.warn("⚠️ File type:", file.type);
+        console.warn("⚠️ File name:", file.name);
         console.warn("⚠️ User will need to re-upload the file or content-based features won't work.");
       }
 

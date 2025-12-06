@@ -19,6 +19,13 @@ export const POST = async (req: NextRequest) => {
         id: fileId, 
         userId: user.id  // CRITICAL: must match current user
       },
+      select: {
+        id: true,
+        key: true,
+        fileType: true,
+        name: true,
+        uploadStatus: true,
+      },
     });
 
     if (!file) {
@@ -35,7 +42,7 @@ export const POST = async (req: NextRequest) => {
       },
     });
 
-    const chunks = await db.chunk.findMany({
+    let chunks = await db.chunk.findMany({
       where: { fileId },
       take: 10,
     });
@@ -52,8 +59,32 @@ export const POST = async (req: NextRequest) => {
       })),
     });
 
+    // If no chunks found, return helpful error message
     if (chunks.length === 0 || !chunks.some((c) => c.text?.trim())) {
-      return new Response("PDF has no extractable text", { status: 400 });
+      console.error("❌ No chunks found for file");
+      console.error("❌ File info:", {
+        id: file.id,
+        key: file.key,
+        fileType: file.fileType,
+        name: file.name,
+        uploadStatus: file.uploadStatus,
+      });
+      console.error("❌ This usually means text extraction failed during upload");
+      console.error("❌ User should call /api/retry-chunks to attempt chunk creation");
+      
+      return new Response(
+        JSON.stringify({
+          error: "PDF has no extractable text",
+          message: "The file was uploaded but text extraction failed during processing. Please call /api/retry-chunks to attempt chunk creation, or re-upload the file.",
+          fileId: file.id,
+          hasKey: !!file.key,
+          canRetry: !!file.key,
+        }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
     // Direct fetch to OpenRouter
