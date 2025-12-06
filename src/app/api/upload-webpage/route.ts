@@ -108,10 +108,16 @@ export async function POST(request: NextRequest) {
       // Upload to R2
       const uploadResult = await uploadToR2(textFile, key, 'text/plain');
       
-      // Update file with URL
+      // Store relative URL in database - frontend will resolve it to correct domain
+      const apiPath = `/api/file/${encodeURIComponent(key)}`;
+      
+      // Update file with relative API URL
       await db.file.update({
         where: { id: createdFile.id },
-        data: { url: uploadResult.url },
+        data: { 
+          key,
+          url: apiPath, // Store relative URL, not absolute
+        },
       });
 
       // Chunk and insert the extracted text

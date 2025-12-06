@@ -6,10 +6,12 @@ import PdfRenderer from "@/components/PdfRenderer";
 import PDFSidebar from "@/components/layout/PDFSidebar";
 import { getFileData } from "@/lib/actions";
 import BannedUserProtection from "@/components/BannedUserProtection";
+import { getAbsoluteFileUrl } from "@/lib/file-url-utils";
 
 interface FileData {
   id: string;
   url: string;
+  key: string | null;
   // add other properties as needed
 }
 
@@ -91,7 +93,7 @@ export default function ChatbotPage({ params }: ChatbotPageProps) {
         {/* PDF Viewer - Takes up more space */}
         <div className="flex-1 flex flex-col">
           <div className="flex-1 p-6">
-            <PdfRenderer url={file.url} />
+            <PdfRenderer url={getAbsoluteFileUrl(file.url, file.key)} />
           </div>
         </div>
 

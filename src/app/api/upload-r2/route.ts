@@ -209,23 +209,18 @@ export async function POST(request: NextRequest) {
       // Upload to R2
       const uploadResult = await uploadToR2(file, key, file.type);
 
-      // Prefer explicit BASE_URL (production), then NEXT_PUBLIC_APP_URL, else derive from the incoming request
-      const origin =
-        (process.env.BASE_URL && process.env.BASE_URL.replace(/\/$/, "")) ||
-        (process.env.NEXT_PUBLIC_APP_URL && process.env.NEXT_PUBLIC_APP_URL.replace(/\/$/, "")) ||
-        new URL(request.url).origin;
-
+      // Store relative URL in database - frontend will resolve it to correct domain
+      // This ensures files work in both development and production
       const apiPath = `/api/file/${encodeURIComponent(key)}`;
-      const fullUrl = `${origin}${apiPath}`;
 
-      console.log("Saving file record:", { key, fullUrl, origin });
+      console.log("Saving file record:", { key, url: apiPath });
 
-      // Save the storage key and the public API URL so frontend can fetch it in prod
+      // Save the storage key and relative API URL (frontend will make it absolute)
       await db.file.update({
         where: { id: createdFile.id },
         data: {
           key,
-          url: fullUrl,
+          url: apiPath, // Store relative URL, not absolute
         },
       });
 
@@ -293,7 +288,7 @@ export async function POST(request: NextRequest) {
         file: {
           id: createdFile.id,
           key: uploadResult.key,
-          url: fullUrl, // Return the API route URL
+          url: apiPath, // Return the relative API route URL
           name: uploadResult.name,
         },
         chunksCreated,

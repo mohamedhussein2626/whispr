@@ -4,28 +4,34 @@
  */
 
 /**
- * Normalize file URL to use API route if it's an old R2 direct URL
+ * Normalize file URL to use API route if it's an old R2 direct URL or localhost URL
  */
 export function normalizeFileUrl(url: string, key?: string | null): string {
-  // If URL is already an API route, return as is
-  if (url.includes('/api/file/')) {
+  // If URL is already a relative API route, return as is
+  if (url.startsWith('/api/file/')) {
     return url;
   }
 
-  // If we have a key and URL is an old R2 URL, convert to API route
-  if (key && (url.includes('r2.cloudflarestorage.com') || url.includes('R2_PUBLIC_URL'))) {
-    // Extract the key from the old URL or use provided key
-    let fileKey = key;
-    
-    // Try to extract key from old URL format: https://...r2.cloudflarestorage.com/uploads/...
-    const r2Match = url.match(/r2\.cloudflarestorage\.com\/(.+)$/);
-    if (r2Match && !key) {
-      fileKey = r2Match[1];
+  // Check if URL is an absolute URL (http:// or https://)
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    // Try to extract the API route path from the URL
+    const apiRouteMatch = url.match(/\/api\/file\/(.+?)(?:\?|$)/);
+    if (apiRouteMatch) {
+      // URL already contains /api/file/ path - extract it and make it relative
+      // This handles localhost URLs like: http://localhost:3000/api/file/uploads%2F...
+      const path = apiRouteMatch[1];
+      return `/api/file/${path}`;
     }
     
-    if (fileKey) {
-      // Return relative API route URL (will be resolved by browser)
-      return `/api/file/${encodeURIComponent(fileKey)}`;
+    // If we have a key and URL is localhost or old R2 URL, convert to API route
+    if (key && (
+      url.includes('localhost') ||
+      url.includes('127.0.0.1') ||
+      url.includes('r2.cloudflarestorage.com') || 
+      url.includes('R2_PUBLIC_URL')
+    )) {
+      // Return relative API route URL using the key (will be resolved by browser)
+      return `/api/file/${encodeURIComponent(key)}`;
     }
   }
 
