@@ -42,7 +42,7 @@ export const POST = async (req: NextRequest) => {
       },
     });
 
-    let chunks = await db.chunk.findMany({
+    const chunks = await db.chunk.findMany({
       where: { fileId },
       take: 10,
     });

@@ -7,7 +7,7 @@ import { getUserFromRequest } from "@/lib/auth";
  * Converts localhost URLs to relative API routes
  * POST /api/fix-file-urls
  */
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     const user = await getUserFromRequest();
     if (!user) {
@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
 /**
  * GET endpoint to check how many files need fixing
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const user = await getUserFromRequest();
     if (!user) {

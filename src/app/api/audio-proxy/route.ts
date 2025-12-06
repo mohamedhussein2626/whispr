@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { r2AudioClient, R2_AUDIO_BUCKET_NAME } from "@/lib/r2-audio-config";
 import { getServerSession } from "@/lib/auth-api";
-import { db } from "@/db";
 import { Readable } from "stream";
 
 // Force Node.js runtime for file serving

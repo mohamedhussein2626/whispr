@@ -356,11 +356,3 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Use this in client code that opens the PDF
-// Do NOT hardcode http://localhost:3000 in production
-const fetchPdf = async (fileKey: string) => {
-  // relative path uses same origin as the app
-  const url = `/api/file/${encodeURIComponent(fileKey)}`;
-  const res = await fetch(url);
-  // handle response
-};
