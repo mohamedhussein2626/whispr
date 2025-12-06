@@ -1,0 +1,421 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String         @id @default(cuid()) // ✅ changed from Int to String
+  password           String?        // Make password optional for social logins
+  name               String
+  email              String         @unique
+  emailVerified      Boolean        @default(false)
+  image              String?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @default(now()) @updatedAt
+  sessions           Session[]
+  accounts           Account[]
+  payments           Payment[] // back-relation for Payment
+  plans              Plan[] // back-relation for Plan (many-to-many)
+  subscriptionStatus String         @default("free") // "free", "active", "canceled", "expired", "banned"
+  subscriptions      Subscription[]
+    planId   Int?
+ subscriptionId     String?   @unique // Stripe subscription ID
+  File    File[]
+  Message Message[]
+  libraryTopics LibraryTopic[]
+  isBanned          Boolean        @default(false)
+  banReason         String?        // Reason for banning the user
+
+  stripeCustomerId       String?               @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?               @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?               @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime?             @map(name: "stripe_current_period_end")
+    planName           String    @default("free") // "free", "unlimted", "lifetime"
+
+  affiliateId            String?               @unique // User's affiliate ID
+  referralCode           String?               @unique // User's referral code
+  referredBy             String? // Who referred this user
+  referredByUser         User?                 @relation("UserReferrals", fields: [referredBy], references: [id])
+  referredUsers          User[]                @relation("UserReferrals")
+  affiliateCommissions   AffiliateCommission[] // Commissions earned
+  referredCommissions    AffiliateCommission[] @relation("ReferredUserCommissions") // Commissions from referrals
+  activities             UserActivity[] // User activity tracking for chargeback protection
+  essayUsage             EssayUsage[] // Essay writer and grader usage tracking
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@map("verification")
+}
+
+model Subscription {
+  id          Int       @id @default(autoincrement())
+  stripeSubId String    @unique
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  plan        Plan      @relation(fields: [planId], references: [id])
+  planId      Int
+  status      String // "active" | "canceled" | "past_due" etc.
+  interval    String // "monthly" | "yearly"
+  startDate   DateTime
+  endDate     DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Affiliate tracking
+  affiliateCommission  Decimal?              @db.Decimal(10, 2) // Commission amount
+  affiliateTrackingId  String? // External tracking ID
+  referralCode         String? // Referral code used
+  affiliateCommissions AffiliateCommission[] // Related commissions
+
+  @@map("subscriptions")
+}
+
+model AffiliateCommission {
+  id             Int              @id @default(autoincrement())
+  affiliateId    String // User who earned the commission
+  affiliate      User             @relation(fields: [affiliateId], references: [id])
+  referredUserId String // User who was referred
+  referredUser   User             @relation("ReferredUserCommissions", fields: [referredUserId], references: [id])
+  subscriptionId Int? // Related subscription
+  subscription   Subscription?    @relation(fields: [subscriptionId], references: [id])
+  amount         Decimal          @db.Decimal(10, 2) // Commission amount
+  percentage     Decimal          @db.Decimal(5, 2) // Commission percentage
+  status         CommissionStatus @default(PENDING)
+  paidAt         DateTime?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@map("affiliate_commissions")
+}
+
+// Library Models for note organization 
+model LibraryTopic {
+  id          String       @id @default(cuid())
+  name        String
+  description String?
+  tags        String[]     @default([])
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notes       LibraryNote[]
+  files       File[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("library_topics")
+}
+
+model LibraryNote {
+  id        String       @id @default(cuid())
+  title     String
+  content   String       @db.Text()
+  tags      String[]     @default([])
+  topicId   String
+  topic     LibraryTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@map("library_notes")
+}
+
+enum PlanStatus {
+  ACTIVE
+  HIDDEN
+  DISABLED
+}
+
+enum CommissionStatus {
+  PENDING
+  APPROVED
+  PAID
+  CANCELLED
+}
+
+model Admin {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  name       String
+  password   String
+  role       String   @default("admin")
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("admins")
+}
+
+model Payment {
+  id                Int      @id @default(autoincrement())
+  amount            Decimal  @db.Decimal(10, 2)
+  status            String
+  stripe_payment_id String?
+  price_id          String?
+  user_email        String
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+enum UploadStatus {
+  PENDING
+  PROCESSING
+  FAILED
+  SUCCESS
+}
+
+model File {
+  id   String @id @default(cuid())
+  name String
+
+  uploadStatus UploadStatus @default(PENDING)
+
+  url         String
+  key         String
+  fileType    String? // MIME type of the file
+  source      String? // "upload" or "webpage" to track how the file was created
+  topic       LibraryTopic? @relation(fields: [topicId], references: [id], onDelete: SetNull)
+  topicId     String?
+  messages    Message[]
+  chunks      Chunk[]
+  quizzes     Quiz[]
+  flashcards  Flashcards[]
+  podcasts    Podcast[]
+  transcripts Transcript[]
+  essayUsage  EssayUsage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Message {
+  id   String @id @default(cuid())
+  text String @db.Text()
+
+  isUserMessage Boolean
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  File      File?    @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  fileId String?
+}
+
+model Chunk {
+  id   String @id @default(cuid())
+  text String @db.Text()
+  file File   @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  fileId String
+
+  createdAt DateTime @default(now())
+}
+
+model Quiz {
+  id        String         @id @default(uuid())
+  file      File           @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  fileId    String
+  title     String
+  createdAt DateTime       @default(now())
+  questions QuizQuestion[]
+}
+
+model QuizQuestion {
+  id        String   @id @default(uuid())
+  quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  quizId    String
+  question  String
+  options   String[] // Array of options
+  answer    String // Correct answer
+  createdAt DateTime @default(now())
+}
+
+model Flashcards {
+  id        String      @id @default(uuid())
+  file      File        @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  fileId    String
+  title     String
+  createdAt DateTime    @default(now())
+  cards     Flashcard[]
+}
+
+model Flashcard {
+  id           String     @id @default(uuid())
+  flashcards   Flashcards @relation(fields: [flashcardsId], references: [id], onDelete: Cascade)
+  flashcardsId String
+  question     String
+  answer       String
+  createdAt    DateTime   @default(now())
+}
+
+model Podcast {
+  id                    String           @id @default(uuid())
+  file                  File             @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  fileId                String
+  title                 String
+  description           String           @db.Text()
+  totalDuration         String
+  coverImage            String?
+  userId                String?
+  // Enhanced podcast features
+  backgroundMusicUrl    String?
+  backgroundMusicVolume Float            @default(0.3)
+  voiceSettings         Json? // Store voice configuration
+  // R2 Audio storage fields
+  audioStorageKey       String? // R2 key for audio file
+  audioFileSize         Int? // File size in bytes
+  audioFormat           String? @default("wav") // Audio format
+  // Auto-cleanup fields
+  autoDeleteAt          DateTime? // When to auto-delete (30 days)
+  isProcessed           Boolean          @default(false) // Processing status
+  processingError       String? // Error message if processing failed
+  // Generation metadata
+  generationMethod      String? @default("text-to-dialogue") // elevenlabs, text-to-dialogue, fallback
+  speakers              Json? // Speaker configuration
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+  sections              PodcastSection[]
+}
+
+model PodcastSection {
+  id               String   @id @default(uuid())
+  podcast          Podcast  @relation(fields: [podcastId], references: [id], onDelete: Cascade)
+  podcastId        String
+  title            String
+  description      String   @db.Text()
+  content          String   @db.Text()
+  duration         String
+  audioUrl         String?
+  // Enhanced audio fields
+  audioStorageKey  String? // R2 key for this section's audio
+  audioFileSize    Int? // File size in bytes
+  audioFormat      String? @default("wav") // Audio format
+  // Multiple voices support
+  speaker1AudioUrl String?
+  speaker2AudioUrl String?
+  speaker1VoiceId  String? // ElevenLabs voice ID for speaker 1
+  speaker2VoiceId  String? // ElevenLabs voice ID for speaker 2
+  speaker1Text     String?  @db.Text() // Text for speaker 1
+  speaker2Text     String?  @db.Text() // Text for speaker 2
+  // Processing metadata
+  isProcessed      Boolean  @default(false) // Processing status
+  processingError  String? // Error message if processing failed
+  generationMethod String? @default("text-to-dialogue") // Generation method used
+  order            Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Transcript {
+  id        String   @id @default(uuid())
+  file      File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  fileId    String
+  title     String
+  content   String   @db.Text()
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Plan {
+  id                    Int            @id @default(autoincrement())
+  name                  String         @unique
+  description           String?
+  features              String?
+  interval              String // "monthly" | "yearly"
+  price                 Float
+  priceId               String?
+  status                PlanStatus     @default(ACTIVE)
+  isPopular             Boolean        @default(false)
+  numberOfFiles         Int            @default(0) // File upload limit
+  numberOfEssayWriter   Int            @default(0) // AI Essay Writer usage limit
+  numberOfEssayGrader   Int            @default(0) // AI Essay Grader usage limit
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  users                 User[]
+  subscriptions         Subscription[]
+}
+
+// User Activity Tracking for Chargeback Protection
+model UserActivity {
+  id        String   @id @default(cuid())
+  userId    String
+  activity  String   // e.g., "file_upload", "subscription_created", "payment_success"
+  metadata  String?  // JSON string with additional details
+  timestamp DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("user_activity")
+}
+
+// Essay Writer and Grader Usage Tracking
+model EssayUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // "essay_writer" or "essay_grader"
+  fileId    String?  // Optional file reference
+  file      File?    @relation(fields: [fileId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  
+  @@map("essay_usage")
+}

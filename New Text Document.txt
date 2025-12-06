@@ -1,0 +1,921 @@
+ GET /api/user/profile 200 in 466ms
+ GET /api/plans 200 in 159ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 455ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 444ms
+ GET /api/admin/plans 200 in 159ms
+ GET /api/plans 200 in 162ms
+ GET /api/admin/plans 200 in 157ms
+ GET /api/admin/plans 200 in 163ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 446ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 476ms
+ GET /api/plans 200 in 164ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 441ms
+ GET /api/admin/plans 200 in 469ms
+ GET /api/admin/plans 200 in 154ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 448ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 1732ms
+ GET /api/admin/plans 200 in 160ms
+ GET /api/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 479ms
+ GET /api/admin/plans 200 in 161ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 444ms
+ GET /api/plans 200 in 158ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 451ms
+ GET /api/admin/plans 200 in 159ms
+ GET /api/plans 200 in 156ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 449ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 440ms
+ GET /api/admin/plans 200 in 156ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 470ms
+ GET /api/admin/plans 200 in 175ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 455ms
+ GET /api/admin/plans 200 in 162ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 449ms
+ GET /api/admin/plans 200 in 155ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 447ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 437ms
+ GET /api/admin/plans 200 in 171ms
+ GET /api/admin/plans 200 in 161ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 452ms
+ GET /api/admin/plans 200 in 180ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 501ms
+ GET /api/admin/plans 200 in 199ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 458ms
+ GET /api/admin/plans 200 in 161ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 491ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 445ms
+ GET /api/plans 200 in 160ms
+ GET /api/admin/plans 200 in 157ms
+ GET /api/admin/plans 200 in 159ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 514ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 442ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 445ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 461ms
+ GET /api/admin/plans 200 in 483ms
+ GET /api/admin/plans 200 in 156ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 613ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 475ms
+ GET /api/admin/plans 200 in 178ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 444ms
+ GET /api/admin/plans 200 in 159ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 452ms
+ GET /api/admin/plans 200 in 159ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 445ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 447ms
+ GET /api/admin/plans 200 in 160ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 447ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 496ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 474ms
+ GET /api/admin/plans 200 in 156ms
+ GET /api/admin/plans 200 in 156ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 440ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 462ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 448ms
+ GET /api/admin/plans 200 in 163ms
+ GET /api/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 443ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 451ms
+ GET /api/admin/plans 200 in 154ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 439ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 469ms
+ GET /api/admin/plans 200 in 158ms
+ GET /api/plans 200 in 159ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 447ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 443ms
+ GET /api/admin/plans 200 in 182ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 496ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 457ms
+ GET /api/admin/plans 200 in 158ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 439ms
+ GET /api/admin/plans 200 in 156ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 445ms
+ GET /api/admin/plans 200 in 159ms
+ GET /api/plans 200 in 171ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 445ms
+ GET /api/admin/plans 200 in 171ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 446ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 455ms
+ GET /api/admin/plans 200 in 179ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 478ms
+ GET /api/admin/plans 200 in 160ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 465ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 441ms
+ GET /api/admin/plans 200 in 159ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 446ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 452ms
+ GET /api/admin/plans 200 in 161ms
+ GET /api/admin/plans 200 in 163ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 443ms
+ GET /api/admin/plans 200 in 157ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 448ms
+ GET /api/admin/plans 200 in 167ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 516ms
+ GET /api/admin/plans 200 in 166ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 495ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 441ms
+ GET /api/admin/plans 200 in 302ms
+ GET /api/admin/plans 200 in 161ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+ GET /api/user/profile 200 in 442ms
+ GET /api/user/profile 200 in 215ms
+ GET /api/user/profile 200 in 24ms
+ GET /api/user/profile 200 in 597ms
+ GET /api/admin/plans 200 in 161ms
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
+Profile API: Fetched user from DB: {
+  id: '6m2PsmFm4OCbPWggiAWAUv07p7hbAHPi',
+  name: 'wewe',
+  email: 'medowwww@gmail.com',
+  planId: null,
+  planName: 'free',
+  subscriptionId: null,
+  subscriptionStatus: 'free',
+  isBanned: false,
+  banReason: null,
+  createdAt: 2025-11-07T17:49:29.159Z
+}
