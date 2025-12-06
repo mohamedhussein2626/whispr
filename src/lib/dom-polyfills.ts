@@ -6,15 +6,16 @@
 // Set up polyfills for serverless/Node.js environments
 const setupPolyfills = () => {
   // Get the global object (works in both Node.js and browser)
-  const globalObj = typeof globalThis !== 'undefined' ? globalThis : 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const globalObj: any = typeof globalThis !== 'undefined' ? globalThis : 
                     typeof global !== 'undefined' ? global : 
                     typeof window !== 'undefined' ? window : {};
   
   // Only set up if we don't already have these (browser has them, Node.js doesn't)
   if (typeof window === 'undefined') {
   // Polyfill DOMMatrix
-  if (typeof (globalObj as any).DOMMatrix === 'undefined') {
-    (globalObj as any).DOMMatrix = class DOMMatrix {
+  if (typeof globalObj.DOMMatrix === 'undefined') {
+    globalObj.DOMMatrix = class DOMMatrix {
       a = 1;
       b = 0;
       c = 0;
@@ -87,8 +88,8 @@ const setupPolyfills = () => {
   }
 
   // Polyfill ImageData
-  if (typeof (globalObj as any).ImageData === 'undefined') {
-    (globalObj as any).ImageData = class ImageData {
+  if (typeof globalObj.ImageData === 'undefined') {
+    globalObj.ImageData = class ImageData {
       data: Uint8ClampedArray;
       width: number;
       height: number;
@@ -108,50 +109,50 @@ const setupPolyfills = () => {
   }
 
   // Polyfill Path2D
-  if (typeof (globalObj as any).Path2D === 'undefined') {
-    (globalObj as any).Path2D = class Path2D {
-      constructor(path?: string | Path2D) {
-        // Minimal implementation
+  if (typeof globalObj.Path2D === 'undefined') {
+    globalObj.Path2D = class Path2D {
+      constructor(_path?: string | Path2D) {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      addPath(path: Path2D, transform?: DOMMatrix): void {
-        // Minimal implementation
+      addPath(_path: Path2D, _transform?: DOMMatrix): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void {
-        // Minimal implementation
+      arc(_x: number, _y: number, _radius: number, _startAngle: number, _endAngle: number, _anticlockwise?: boolean): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void {
-        // Minimal implementation
+      arcTo(_x1: number, _y1: number, _x2: number, _y2: number, _radius: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void {
-        // Minimal implementation
+      bezierCurveTo(_cp1x: number, _cp1y: number, _cp2x: number, _cp2y: number, _x: number, _y: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
       closePath(): void {
-        // Minimal implementation
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void {
-        // Minimal implementation
+      ellipse(_x: number, _y: number, _radiusX: number, _radiusY: number, _rotation: number, _startAngle: number, _endAngle: number, _anticlockwise?: boolean): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      lineTo(x: number, y: number): void {
-        // Minimal implementation
+      lineTo(_x: number, _y: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      moveTo(x: number, y: number): void {
-        // Minimal implementation
+      moveTo(_x: number, _y: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void {
-        // Minimal implementation
+      quadraticCurveTo(_cpx: number, _cpy: number, _x: number, _y: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
       
-      rect(x: number, y: number, w: number, h: number): void {
-        // Minimal implementation
+      rect(_x: number, _y: number, _w: number, _h: number): void {
+        // Minimal implementation - polyfill for pdf-parse compatibility
       }
     } as unknown as typeof Path2D;
   }

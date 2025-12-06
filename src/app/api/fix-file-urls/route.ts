@@ -7,6 +7,7 @@ import { getUserFromRequest } from "@/lib/auth";
  * Converts localhost URLs to relative API routes
  * POST /api/fix-file-urls
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function POST(_request: NextRequest) {
   try {
     const user = await getUserFromRequest();
@@ -108,6 +109,7 @@ export async function POST(_request: NextRequest) {
 /**
  * GET endpoint to check how many files need fixing
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(_request: NextRequest) {
   try {
     const user = await getUserFromRequest();
